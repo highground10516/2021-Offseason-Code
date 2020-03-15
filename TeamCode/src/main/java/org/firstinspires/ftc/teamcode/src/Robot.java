@@ -1,8 +1,9 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.src;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
@@ -13,12 +14,15 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public class Robot {
     // Robot Hardware
-    public DcMotor frontLeft, frontRight, backLeft, backRight;
-    public DcMotor[] driveMotors;
+    // Drive Motors
+    public DcMotorEx frontLeft, frontRight, backLeft, backRight;
+    public DcMotorEx[] driveMotors;
+    // Inertial Motion Unit
     public BNO055IMU imu;
     public Orientation angles;
     public Acceleration gravity;
     public BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+    //
 
     /**
      * Initializes Robot Hardware Components
@@ -26,15 +30,15 @@ public class Robot {
      */
     public void init(HardwareMap hMap) {
         // Drive
-        frontLeft = hMap.get(DcMotor.class, "Front Left");
-        frontRight = hMap.get(DcMotor.class, "Front Right");
-        backLeft = hMap.get(DcMotor.class, "Back Left");
-        backRight = hMap.get(DcMotor.class, "Back Right");
+        frontLeft = hMap.get(DcMotorEx.class, "Front Left");
+        frontRight = hMap.get(DcMotorEx.class, "Front Right");
+        backLeft = hMap.get(DcMotorEx.class, "Back Left");
+        backRight = hMap.get(DcMotorEx.class, "Back Right");
 
         frontRight.setDirection(DcMotor.Direction.REVERSE);
         backRight.setDirection(DcMotor.Direction.REVERSE);
 
-        driveMotors = new DcMotor[]{frontLeft, frontRight, backLeft, backRight};
+        driveMotors = new DcMotorEx[]{frontLeft, frontRight, backLeft, backRight};
 
         // REV Inertial Movement Unit (Gyro, Accelerometer, Magnetometer, etc.)
         parameters.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
