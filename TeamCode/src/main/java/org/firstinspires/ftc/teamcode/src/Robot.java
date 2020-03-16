@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode.src;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -36,8 +35,8 @@ public class Robot {
         backLeft = hMap.get(DcMotorEx.class, "Back Left");
         backRight = hMap.get(DcMotorEx.class, "Back Right");
 
-        frontRight.setDirection(DcMotor.Direction.REVERSE);
-        backRight.setDirection(DcMotor.Direction.REVERSE);
+        frontRight.setDirection(DcMotorEx.Direction.REVERSE);
+        backRight.setDirection(DcMotorEx.Direction.REVERSE);
 
         driveMotors = new DcMotorEx[]{frontLeft, frontRight, backLeft, backRight};
 
@@ -67,7 +66,7 @@ public class Robot {
      * @param power Speed of movement
      */
     public void setDriveMotors(double power) {
-        for (DcMotor i : driveMotors) {
+        for (DcMotorEx i : driveMotors) {
             i.setPower(power);
         }
     }
@@ -101,14 +100,14 @@ public class Robot {
      */
     public void encoderDrive(double power, int distance) {
 
-        for (DcMotor i : driveMotors) {
-            i.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        for (DcMotorEx i : driveMotors) {
+            i.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         }
-        for (DcMotor i : driveMotors) {
+        for (DcMotorEx i : driveMotors) {
             i.setTargetPosition(distance);
         }
-        for (DcMotor i : driveMotors) {
-            i.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        for (DcMotorEx i : driveMotors) {
+            i.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
         }
         setDriveMotors(power);
 
@@ -124,8 +123,8 @@ public class Robot {
      */
     public void encoderStrafe(double power, int distance) {
 
-        for (DcMotor i : driveMotors) {
-            i.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        for (DcMotorEx i : driveMotors) {
+            i.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         }
 
         frontLeft.setTargetPosition(distance);
@@ -133,8 +132,8 @@ public class Robot {
         frontRight.setTargetPosition(-distance);
         backRight.setTargetPosition(distance);
 
-        for (DcMotor i : driveMotors) {
-            i.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        for (DcMotorEx i : driveMotors) {
+            i.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
         }
         setStrafeMotors(power);
 
