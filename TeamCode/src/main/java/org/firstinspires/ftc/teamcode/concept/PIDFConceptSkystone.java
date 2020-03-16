@@ -1,10 +1,9 @@
-package org.firstinspires.ftc.teamcode.Concept;
+package org.firstinspires.ftc.teamcode.concept;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.PIDCoefficients;
 import com.qualcomm.robotcore.hardware.PIDFCoefficients;
 
 @Autonomous(name = "Concept PIDF", group = "Concept")

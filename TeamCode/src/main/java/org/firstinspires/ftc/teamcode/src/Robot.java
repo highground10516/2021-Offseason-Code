@@ -12,6 +12,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
+import static org.firstinspires.ftc.teamcode.src.Constants.*;
+
 public class Robot {
     // Robot Hardware
     // Drive Motors
@@ -22,7 +24,6 @@ public class Robot {
     public Orientation angles;
     public Acceleration gravity;
     public BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
-    //
 
     /**
      * Initializes Robot Hardware Components
