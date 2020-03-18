@@ -11,13 +11,13 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-import static org.firstinspires.ftc.teamcode.src.Constants.*;
-
 public class Robot {
     // Robot Hardware
+
     // Drive Motors
     public DcMotorEx frontLeft, frontRight, backLeft, backRight;
     public DcMotorEx[] driveMotors;
+
     // Inertial Motion Unit
     public BNO055IMU imu;
     public Orientation angles;
@@ -30,10 +30,10 @@ public class Robot {
      */
     public void init(HardwareMap hMap) {
         // Drive
-        frontLeft = hMap.get(DcMotorEx.class, "Front Left");
-        frontRight = hMap.get(DcMotorEx.class, "Front Right");
-        backLeft = hMap.get(DcMotorEx.class, "Back Left");
-        backRight = hMap.get(DcMotorEx.class, "Back Right");
+        frontLeft = hMap.get(DcMotorEx.class, Constants.frontLeft);
+        frontRight = hMap.get(DcMotorEx.class, Constants.frontRight);
+        backLeft = hMap.get(DcMotorEx.class, Constants.backLeft);
+        backRight = hMap.get(DcMotorEx.class, Constants.backRight);
 
         frontRight.setDirection(DcMotorEx.Direction.REVERSE);
         backRight.setDirection(DcMotorEx.Direction.REVERSE);
